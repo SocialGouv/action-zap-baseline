@@ -38366,8 +38366,8 @@ async function run() {
         }
 
         // Create the files so we can change the perms and allow the docker non root user to update them
-        await exec.exec(`touch ${jsonReportName} ${mdReportName} ${htmlReportName}`);
-        await exec.exec(`chmod a+w ${jsonReportName} ${mdReportName} ${htmlReportName}`);
+        await exec.exec(`touch ${jsonReportName} ${mdReportName} ${htmlReportName} zap.yaml`);
+        await exec.exec(`chmod a+w ${jsonReportName} ${mdReportName} ${htmlReportName} zap.yaml`);
 
         await exec.exec(`docker pull ${docker_name} -q`);
         let command = (`docker run -v ${workspace}:/zap/wrk/:rw --network="host" ` +
